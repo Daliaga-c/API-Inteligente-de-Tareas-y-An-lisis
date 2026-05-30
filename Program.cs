@@ -36,6 +36,7 @@ builder.Services.AddHttpClient("JsonPlaceholder", client =>
     client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");
 });
 
+builder.Services.AddSingleton<ApiTareas.Services.MlService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
