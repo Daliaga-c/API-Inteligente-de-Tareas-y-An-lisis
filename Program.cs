@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ApiTareas.Data;
 using System.Text.Json.Serialization;
 
@@ -28,6 +28,12 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
+});
+
+// Configure HttpClient for external API
+builder.Services.AddHttpClient("JsonPlaceholder", client =>
+{
+    client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");
 });
 
 var app = builder.Build();
